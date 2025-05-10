@@ -2,55 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Emanuelle | Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="icon" href="images/favicon.ico" />
   <style>
-    * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
+      padding: 0;
       color: #fff;
       background: linear-gradient(-45deg, #e66465, #9198e5, #f6d365, #c471ed);
       background-size: 400% 400%;
       animation: gradient 10s ease infinite;
     }
+
     @keyframes gradient {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(0,0,0,0.5);
-      padding: 10px 0;
-      text-align: center;
-      z-index: 999;
-    }
-
-    nav a {
-      margin: 0 15px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffd700;
-    }
-
-    section {
-      padding: 80px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
     header {
-      padding-top: 100px;
+      padding: 80px 20px 40px;
       text-align: center;
     }
 
@@ -59,17 +32,22 @@
       margin-bottom: 10px;
     }
 
-    #typewriter {
-      display: inline-block;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid white;
-      animation: blink-caret 0.75s step-end infinite;
+    section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
     }
 
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: white; }
+    .section-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .section-box h2 {
+      margin-top: 0;
     }
 
     .social-links a {
@@ -83,147 +61,84 @@
       color: #ffd700;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px 0;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    .experience i {
+      margin-right: 10px;
     }
 
-    .galeria {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #fff;
+      color: #333;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    .galeria img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    .galeria img:hover {
-      transform: scale(1.05);
+    .download-btn:hover {
+      background-color: #ffd700;
+      color: #000;
     }
 
     footer {
       text-align: center;
-      padding: 30px 20px;
-      background-color: rgba(0,0,0,0.4);
+      padding: 20px;
+      background-color: rgba(0,0,0,0.3);
       font-size: 14px;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 768px) {
-      .galeria {
-        flex-direction: column;
-        align-items: center;
-      }
     }
   </style>
 </head>
 <body>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#gallery">Gallery</a>
-  </nav>
-
-  <header id="home">
-    <h1 id="typewriter"></h1>
+  <header>
+    <h1>Hello! I'm Emanuelle 👩‍💻</h1>
     <p>Welcome to my animated portfolio page ✨</p>
     <div class="social-links">
-      <a href="https://www.instagram.com/manu_christinie/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/emanuelle-christinie-202900226/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://discord.com/users/720340595259998260" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>   
-      <a href="mailto:emanuellechristinie8@email.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/manu_christinie/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/emanuelle-christinie-202900226/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://discord.com/users/720340595259998260" target="_blank"><i class="fab fa-discord"></i></a>   
+      <a href="mailto:emanuellechristinie8@email.com"><i class="fas fa-envelope"></i></a>
     </div>
   </header>
 
-  <section id="about">
-    <div class="card">
-      <h2>✨ About Me</h2>
-      <p>I'm Emanuelle, a university student passionate about technology. I'm building my journey in development and open to opportunities in tech.</p>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="card">
-      <h2>🛠 Skills</h2>
-      <ul>
-        <li>C / C++ / Java / Python</li>
-        <li>HTML & CSS</li>
-        <li>English & Spanish</li>
-        <li>Git, GitHub and version control</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="card">
-      <h2>📁 Projects</h2>
-      <p>This is my first project: an animated welcome portfolio page hosted on GitHub Pages. More projects coming soon!</p>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="card">
-      <h2>💼 Experience</h2>
-      <p>Currently learning and exploring development. I’m open to internships, collaborations, and mentoring opportunities.</p>
-    </div>
-  </section>
-
-  <section id="gallery">
-    <h2 style="text-align: center;">🎨 Gallery</h2>
-
-    <h3>Art</h3>
-    <div class="galeria">
-      <img src="images/arte1.png" alt="Arte 1">
-      <img src="images/arte2.png" alt="Arte 2">
-      <img src="images/arte3.png" alt="Arte 3">
+  <section>
+    <div class="section-box">
+      <h2>✨ Quem Sou Eu</h2>
+      <p>Prazer, me chamo Emanuelle Christinie, mas também posso atender por Emma. Tenho 18 anos e atualmente sou estudante de Ciências da Computação pela CEUB.</p>
     </div>
 
-    <h3>📊 Sinusi</h3>
-    <div class="galeria">
-      <img src="images/sinusi1.png" alt="Sinusi 1">
-      <img src="images/sinusi2.png" alt="Sinusi 2">
-      <img src="images/sinusi3.png" alt="Sinusi 3">
+    <div class="section-box">
+      <h2>🌍 Idiomas</h2>
+      <p>Inglês avançado, espanhol intermediário e iniciante em francês.</p>
     </div>
 
-    <h3>📜 Certificates</h3>
-    <div class="galeria">
-      <img src="images/certificado1.png" alt="Certificado 1">
-      <img src="images/certificado2.png" alt="Certificado 2">
-      <img src="images/certificado3.png" alt="Certificado 3">
-      <img src="images/certificado4.png" alt="Certificado 4">
+    <div class="section-box">
+      <h2>🛠️ Habilidades</h2>
+      <p>Criatividade, liderança, organização e raciocínio lógico.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🌟 Objetivos</h2>
+      <p>Me aprofundar dentro do espectro da tecnologia, sendo capaz de contribuir com meus amigos, empresas futuras e claro na Ciência.</p>
+    </div>
+
+    <div class="section-box experience">
+      <h2>💼 Experiências</h2>
+      <p><i class="fas fa-database"></i> Conhecimento básico sobre modelagem e construção de um Banco de Dados.</p>
+      <p><i class="fas fa-code"></i> Conhecimento em progresso sobre as múltiplas linguagens, principalmente C++ e Python.</p>
+      <p><i class="fas fa-paint-brush"></i> Artista desde criança, desenhar se tornou meu passatempo favorito.</p>
+      <p><i class="fas fa-theater-masks"></i> Teatro e atuação entram nesse conjunto artístico e criativo.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>📄 Download</h2>
+      <p>Baixe meu portfólio completo em formato .doc:</p>
+      <a class="download-btn" href="portfolio.docx" download>Download Portfólio</a>
     </div>
   </section>
 
   <footer>
     Made with ❤️ by Emanuelle – 2025
   </footer>
-
-  <script>
-    const text = "Hello! I'm Emanuelle 👩‍💻";
-    let i = 0;
-    function typeWriter() {
-      if (i < text.length) {
-        document.getElementById("typewriter").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 100);
-      }
-    }
-
-    window.onload = () => {
-      typeWriter();
-    };
-  </script>
 </body>
 </html>
