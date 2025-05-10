@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Emanuelle | Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -10,6 +10,7 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
+      font-size: 15px;
       color: #fff;
       background: linear-gradient(-45deg, #e66465, #9198e5, #f6d365, #c471ed);
       background-size: 400% 400%;
@@ -23,18 +24,18 @@
     }
 
     header {
-      padding: 80px 20px 40px;
+      padding: 70px 20px 30px;
       text-align: center;
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2em;
       margin-bottom: 10px;
     }
 
     .social-links a {
-      margin: 0 10px;
-      font-size: 22px;
+      margin: 0 8px;
+      font-size: 20px;
       color: white;
       transition: color 0.3s;
     }
@@ -44,7 +45,7 @@
     }
 
     section {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 0 20px 40px;
     }
@@ -67,17 +68,27 @@
 
     .section-box h2 {
       margin-top: 0;
+      font-size: 1.3em;
     }
 
-    .section-box img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    .gallery img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
       transition: transform 0.3s ease;
-      margin-bottom: 10px;
     }
 
-    .section-box img:hover {
+    .gallery img:hover {
       transform: scale(1.05);
     }
 
@@ -101,127 +112,170 @@
       color: #000;
     }
 
-    .circle, .square {
-      position: absolute;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      animation: moveShape 8s linear infinite;
+    .toggle-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
     }
 
-    .square {
-      border-radius: 0;
+    .toggle-btns button {
+      background-color: #fff;
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
 
-    @keyframes moveShape {
-      0% { top: 10%; left: 10%; }
-      25% { top: 50%; left: 25%; }
-      50% { top: 10%; left: 50%; }
-      75% { top: 70%; left: 75%; }
-      100% { top: 10%; left: 10%; }
+    .toggle-btns button:hover {
+      background-color: #ffd700;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .review {
+      background: rgba(255, 255, 255, 0.1);
+      border-left: 5px solid #ffd700;
+      padding: 20px;
+      margin: 40px auto;
+      border-radius: 10px;
+      max-width: 800px;
+      font-style: italic;
     }
 
     footer {
       text-align: center;
       padding: 20px;
       background-color: rgba(0,0,0,0.3);
-      font-size: 14px;
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Hello! I'm Emanuelle 👩‍💻</h1>
-    <p>Welcome to my animated portfolio page ✨</p>
-    <div class="social-links">
-      <a href="https://www.instagram.com/manu_christinie/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/emanuelle-christinie-202900226/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://discord.com/users/720340595259998260" target="_blank"><i class="fab fa-discord"></i></a>   
-      <a href="mailto:emanuellechristinie8@email.com"><i class="fas fa-envelope"></i></a>
-    </div>
-  </header>
+<header>
+  <h1>Hello! I'm Emanuelle 👩‍💻</h1>
+  <p>Welcome to my animated portfolio page ✨</p>
+  <div class="social-links">
+    <a href="https://www.instagram.com/manu_christinie/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/emanuelle-christinie-202900226/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://discord.com/users/720340595259998260" target="_blank"><i class="fab fa-discord"></i></a>   
+    <a href="mailto:emanuellechristinie8@email.com"><i class="fas fa-envelope"></i></a>
+  </div>
+</header>
 
-  <section>
-    <div class="section-box">
-      <h2>✨ Quem Sou Eu</h2>
-      <p>Prazer, me chamo Emanuelle Christinie, mas também posso atender por Emma. Tenho 18 anos e atualmente sou estudante de Ciências da Computação pela CEUB.</p>
-    </div>
+<section>
+  <div class="section-box visible">
+    <h2>✨ Quem Sou Eu</h2>
+    <p>Prazer, me chamo Emanuelle Christinie, mas também posso atender por Emma. Tenho 18 anos e atualmente sou estudante de Ciências da Computação pela CEUB.</p>
+  </div>
 
-    <div class="section-box">
-      <h2>🌍 Idiomas</h2>
-      <p>Inglês avançado</p>
-      <p>Espanhol intermediário</p>
-      <p>Iniciante em francês</p>
-    </div>
+  <div class="section-box visible">
+    <h2>🌍 Idiomas</h2>
+    <p>Inglês avançado</p>
+    <p>Espanhol intermediário</p>
+    <p>Iniciante em francês</p>
+  </div>
 
-    <div class="section-box">
-      <h2>🛠 Habilidades</h2>
-      <p>Criatividade, liderança, organização e raciocínio lógico.</p>
-    </div>
+  <div class="section-box visible">
+    <h2>🛠 Habilidades</h2>
+    <p>Criatividade, liderança, organização e raciocínio lógico.</p>
+  </div>
 
-    <div class="section-box">
-      <h2>🎯 Objetivos</h2>
-      <p>Me aprofundar dentro do espectro da tecnologia, sendo capaz de contribuir com meus amigos, empresas futuras e claro, na Ciência.</p>
-    </div>
+  <div class="section-box visible">
+    <h2>🎯 Objetivos</h2>
+    <p>Me aprofundar dentro do espectro da tecnologia, sendo capaz de contribuir com meus amigos, empresas futuras e claro, na Ciência.</p>
+  </div>
 
-    <div class="section-box experience">
-      <h2>💼 Experiências</h2>
-      <p><i class="fas fa-database"></i> Conhecimento básico sobre modelagem e construção de um Banco de Dados.</p>
-      <p><i class="fas fa-code"></i> Conhecimento em progresso sobre as múltiplas linguagens, principalmente C++ e Python.</p>
-      <p><i class="fas fa-paint-brush"></i> Artista desde criança, desenhar se tornou meu passatempo favorito.</p>
-      <p><i class="fas fa-theater-masks"></i> Teatro e atuação entram nesse conjunto artístico e criativo.</p>
-    </div>
+  <div class="section-box visible experience">
+    <h2>💼 Experiências</h2>
+    <p><i class="fas fa-database"></i> Conhecimento básico sobre modelagem e construção de um Banco de Dados.</p>
+    <p><i class="fas fa-code"></i> Conhecimento em progresso sobre as múltiplas linguagens, principalmente C++ e Python.</p>
+    <p><i class="fas fa-paint-brush"></i> Artista desde criança, desenhar se tornou meu passatempo favorito.</p>
+    <p><i class="fas fa-theater-masks"></i> Teatro e atuação entram nesse conjunto artístico e criativo.</p>
+  </div>
 
-    <div class="section-box">
-      <h2>🖼 Imagens de Trabalho</h2>
+  <div class="toggle-btns">
+    <button onclick="toggleSection('art')">🎨 Arte</button>
+    <button onclick="toggleSection('sinusi')">📊 Sinusi</button>
+    <button onclick="toggleSection('certificados')">📜 Certificados</button>
+  </div>
 
-      <h3>🎨 Arte</h3>
+  <div id="art" class="section-box hidden">
+    <h2>🎨 Arte</h2>
+    <div class="gallery">
       <img src="images/arte1.png.jpg" alt="Arte 1">
       <img src="images/arte2.png.jpg" alt="Arte 2">
       <img src="images/arte3.png.jpg" alt="Arte 3">
+    </div>
+  </div>
 
-      <h3>📊 Sinusi</h3>
+  <div id="sinusi" class="section-box hidden">
+    <h2>📊 Sinusi</h2>
+    <div class="gallery">
       <img src="images/sinusi1.png.jpg" alt="Sinusi 1">
       <img src="images/sinusi2.png.jpg" alt="Sinusi 2">
       <img src="images/sinusi3.png.jpg" alt="Sinusi 3">
+    </div>
+  </div>
 
-      <h3>📜 Certificados / Acadêmico</h3>
+  <div id="certificados" class="section-box hidden">
+    <h2>📜 Certificados / Acadêmico</h2>
+    <div class="gallery">
       <img src="images/certificados1.png.jpg" alt="Certificado 1">
       <img src="images/certificados2.png.jpg" alt="Certificado 2">
       <img src="images/certificados3.png.jpg" alt="Certificado 3">
       <img src="images/certificados4png.jpg" alt="Certificado 4">
     </div>
+  </div>
 
-    <div class="section-box">
-      <h2>📂 Download</h2>
-      <p>Baixe meu portfólio completo em formato .doc:</p>
-      <a class="download-btn" href="portfolio.docx" download>Download Portfólio</a>
-    </div>
-  </section>
+  <div class="section-box visible">
+    <h2>📂 Download</h2>
+    <p>Baixe meu portfólio completo em formato .doc:</p>
+    <a class="download-btn" href="portfolio.docx" download>Download Portfólio</a>
+  </div>
 
-  <footer>
-    Made with ❤️ by Emanuelle – 2025
-  </footer>
+  <div class="review">
+    <p>"Tive o privilégio de aprender muito com ela, dentro e fora da nossa sala. Emanuelle não foi somente uma colega de turma inteligente, ela foi uma amiga, uma pessoa admirável. Sei que o futuro reserva grandes conquistas pra ela, porque onde ela estiver vai fazer diferença."</p>
+    <p style="text-align: right;">Com carinho,<br>Sarah Lackman.</p>
+  </div>
 
-  <script>
-    window.onload = () => {
-      const sections = document.querySelectorAll('.section-box');
-      window.addEventListener('scroll', () => {
-        sections.forEach(section => {
-          const rect = section.getBoundingClientRect();
-          if (rect.top < window.innerHeight - 100) {
-            section.classList.add('visible');
-          }
-        });
+  <div class="section-box visible">
+    <h2>💖 Obrigada!</h2>
+    <p>Espero que tenham gostado do meu site ✨</p>
+  </div>
+</section>
+
+<footer>
+  Made with ❤️ by Emanuelle – 2025
+</footer>
+
+<script>
+  window.onload = () => {
+    const sections = document.querySelectorAll('.section-box');
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          section.classList.add('visible');
+        }
       });
-    };
-  </script>
+    });
+  };
 
-  <!-- Circles and Squares Animation -->
-  <div class="circle"></div>
-  <div class="square"></div>
+  function toggleSection(id) {
+    const section = document.getElementById(id);
+    section.classList.toggle('hidden');
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+</script>
+
 </body>
 </html>
 
