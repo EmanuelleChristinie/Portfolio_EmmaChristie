@@ -1,8 +1,14 @@
+
+### Código HTML Atualizado
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Portfolio of Emanuelle, a university student passionate about technology and development." />
+  <meta name="keywords" content="Emanuelle, Portfolio, Technology, Development, Projects" />
   <title>Emanuelle | Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -32,6 +38,19 @@
       margin-bottom: 10px;
     }
 
+    #typewriter {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid white;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: white; }
+    }
+
     .social-links a {
       margin: 0 10px;
       font-size: 22px;
@@ -47,70 +66,79 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 0 20px 40px;
+      position: relative;
     }
 
-    .section-box {
+    .card {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       padding: 20px;
-      margin-bottom: 20px;
+      margin: 20px 0;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.8s ease;
     }
 
-    .section-box.visible {
+    .card.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .section-box h2 {
-      margin-top: 0;
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
-    .section-box img {
+    .galeria img {
       max-width: 100%;
       height: auto;
       border-radius: 8px;
       transition: transform 0.3s ease;
     }
 
-    .section-box img:hover {
+    .galeria img:hover {
       transform: scale(1.05);
     }
 
-    .experience i {
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0,0,0,0.3);
+      font-size: 14px;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      animation: move 10s linear infinite;
+    }
+
+    @keyframes move {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(100px, 100px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    .icon {
+      font-size: 24px;
       margin-right: 10px;
     }
 
-    .download-btn {
+    .download-button {
       display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #fff;
-      color: #333;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .download-btn:hover {
+      padding: 10px 20px;
       background-color: #ffd700;
       color: #000;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
     }
 
-    .circle, .square {
-      position: absolute;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      animation: moveShape 8s linear infinite;
+    .download-button:hover {
+      background-color: #ffc107;
     }
 
-    .square {
-      border-radius: 0;
-    }
-
-    @keyframes move
+    @media (max-width: 768px) {
+      header {
+        padding: 40px
