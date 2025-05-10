@@ -32,24 +32,6 @@
       margin-bottom: 10px;
     }
 
-    section {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .section-box {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .section-box h2 {
-      margin-top: 0;
-    }
-
     .social-links a {
       margin: 0 10px;
       font-size: 22px;
@@ -59,6 +41,43 @@
 
     .social-links a:hover {
       color: #ffd700;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .section-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .section-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-box h2 {
+      margin-top: 0;
+    }
+
+    .section-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .section-box img:hover {
+      transform: scale(1.05);
     }
 
     .experience i {
@@ -81,64 +100,17 @@
       color: #000;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: rgba(0,0,0,0.3);
-      font-size: 14px;
+    .circle, .square {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      animation: moveShape 8s linear infinite;
     }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Hello! I'm Emanuelle 👩‍💻</h1>
-    <p>Welcome to my animated portfolio page ✨</p>
-    <div class="social-links">
-      <a href="https://www.instagram.com/manu_christinie/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/emanuelle-christinie-202900226/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://discord.com/users/720340595259998260" target="_blank"><i class="fab fa-discord"></i></a>   
-      <a href="mailto:emanuellechristinie8@email.com"><i class="fas fa-envelope"></i></a>
-    </div>
-  </header>
 
-  <section>
-    <div class="section-box">
-      <h2>✨ Quem Sou Eu</h2>
-      <p>Prazer, me chamo Emanuelle Christinie, mas também posso atender por Emma. Tenho 18 anos e atualmente sou estudante de Ciências da Computação pela CEUB.</p>
-    </div>
+    .square {
+      border-radius: 0;
+    }
 
-    <div class="section-box">
-      <h2>🌍 Idiomas</h2>
-      <p>Inglês avançado, espanhol intermediário e iniciante em francês.</p>
-    </div>
-
-    <div class="section-box">
-      <h2>🛠️ Habilidades</h2>
-      <p>Criatividade, liderança, organização e raciocínio lógico.</p>
-    </div>
-
-    <div class="section-box">
-      <h2>🌟 Objetivos</h2>
-      <p>Me aprofundar dentro do espectro da tecnologia, sendo capaz de contribuir com meus amigos, empresas futuras e claro na Ciência.</p>
-    </div>
-
-    <div class="section-box experience">
-      <h2>💼 Experiências</h2>
-      <p><i class="fas fa-database"></i> Conhecimento básico sobre modelagem e construção de um Banco de Dados.</p>
-      <p><i class="fas fa-code"></i> Conhecimento em progresso sobre as múltiplas linguagens, principalmente C++ e Python.</p>
-      <p><i class="fas fa-paint-brush"></i> Artista desde criança, desenhar se tornou meu passatempo favorito.</p>
-      <p><i class="fas fa-theater-masks"></i> Teatro e atuação entram nesse conjunto artístico e criativo.</p>
-    </div>
-
-    <div class="section-box">
-      <h2>📄 Download</h2>
-      <p>Baixe meu portfólio completo em formato .doc:</p>
-      <a class="download-btn" href="portfolio.docx" download>Download Portfólio</a>
-    </div>
-  </section>
-
-  <footer>
-    Made with ❤️ by Emanuelle – 2025
-  </footer>
-</body>
-</html>
+    @keyframes move
