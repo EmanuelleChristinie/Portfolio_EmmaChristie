@@ -13,7 +13,7 @@
       color: #fff;
       background: linear-gradient(-45deg, #e66465, #9198e5, #f6d365, #c471ed);
       background-size: 400% 400%;
-      animation: gradient 10s ease infinite;
+      animation: gradient 15s ease infinite;
       overflow-x: hidden;
     }
 
@@ -33,13 +33,17 @@
 
     h1 {
       font-size: 3em;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       text-transform: uppercase;
     }
 
     p {
-      font-size: 1.5em;
+      font-size: 1.4em;
       font-style: italic;
+    }
+
+    .social-links {
+      margin-top: 15px;
     }
 
     .social-links a {
@@ -63,176 +67,159 @@
       background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       padding: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.5s ease;
     }
 
-    .section-box h2 {
-      margin-top: 0;
+    .section-box:hover {
+      transform: scale(1.02);
     }
 
-    .experience i {
-      margin-right: 10px;
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
     }
 
-    .download-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #fff;
-      color: #333;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      scroll-behavior: smooth;
     }
 
-    .download-btn:hover {
-      background-color: #ffd700;
-      color: #000;
+    .carousel img {
+      width: 100%;
+      max-width: 400px;
+      margin-right: 20px;
+      border-radius: 10px;
+      flex-shrink: 0;
     }
 
-    /* Styling for images with transitions */
-    .images-container {
+    .carousel-buttons {
+      position: relative;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 400px; /* Adjust the height as needed */
-      overflow: hidden;
-      position: relative;
+      margin-top: 10px;
     }
 
-    .image-item {
-      width: 100%;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
+    .carousel-buttons button {
+      background: rgba(255, 255, 255, 0.3);
+      border: none;
+      padding: 10px;
+      margin: 0 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
     }
 
-    .image-item.active {
-      opacity: 1;
+    .carousel-buttons button:hover {
+      background: #ffd700;
+    }
+
+    .review-section {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .review-section h2 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .review-section p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: auto;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background-color: rgba(0,0,0,0.3);
-      font-size: 14px;
-    }
-
-    .thank-you {
-      text-align: center;
-      font-size: 1.5em;
+      font-size: 16px;
+      background: rgba(0, 0, 0, 0.3);
       margin-top: 40px;
-      padding-top: 30px;
-      border-top: 2px solid #fff;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>WELCOME TO MY SITE</h1>
     <p>Um pouco sobre mim de um novo jeito</p>
     <div class="social-links">
+      <span>Minhas formas de contato:</span><br>
       <a href="https://www.instagram.com/manu_christinie/" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.linkedin.com/in/emanuelle-christinie-202900226/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://discord.com/users/720340595259998260" target="_blank"><i class="fab fa-discord"></i></a>   
+      <a href="https://discord.com/users/720340595259998260" target="_blank"><i class="fab fa-discord"></i></a>
       <a href="mailto:emanuellechristinie8@email.com"><i class="fas fa-envelope"></i></a>
     </div>
   </header>
 
   <section>
     <div class="section-box">
-      <h2>✨ Quem Sou Eu</h2>
-      <p>Prazer, me chamo Emanuelle Christinie, mas também posso atender por Emma. Tenho 18 anos e atualmente sou estudante de Ciências da Computação pela CEUB.</p>
+      <h2>🎨 Arte</h2>
+      <div class="carousel-container">
+        <div class="carousel" id="carousel-arte">
+          <img src="images/arte1.png" alt="Arte 1">
+          <img src="images/arte2.png" alt="Arte 2">
+          <img src="images/arte3.png" alt="Arte 3">
+        </div>
+      </div>
+      <div class="carousel-buttons">
+        <button onclick="scrollCarousel('carousel-arte', -1)">⬅</button>
+        <button onclick="scrollCarousel('carousel-arte', 1)">➡</button>
+      </div>
     </div>
 
     <div class="section-box">
-      <h2>🌍 Idiomas</h2>
-      <p>Inglês avançado, Espanhol intermediário, iniciante em francês.</p>
+      <h2>📊 Sinusi</h2>
+      <div class="carousel-container">
+        <div class="carousel" id="carousel-sinusi">
+          <img src="images/sinusi1.png" alt="Sinusi 1">
+          <img src="images/sinusi2.png" alt="Sinusi 2">
+          <img src="images/sinusi3.png" alt="Sinusi 3">
+        </div>
+      </div>
+      <div class="carousel-buttons">
+        <button onclick="scrollCarousel('carousel-sinusi', -1)">⬅</button>
+        <button onclick="scrollCarousel('carousel-sinusi', 1)">➡</button>
+      </div>
     </div>
 
     <div class="section-box">
-      <h2>🛠 Habilidades</h2>
-      <p>Criatividade, liderança, organização e raciocínio lógico.</p>
+      <h2>📜 Certificados / Acadêmico</h2>
+      <div class="carousel-container">
+        <div class="carousel" id="carousel-certificados">
+          <img src="images/certificado1.png" alt="Certificado 1">
+          <img src="images/certificado2.png" alt="Certificado 2">
+          <img src="images/certificado3.png" alt="Certificado 3">
+          <img src="images/certificado4.png" alt="Certificado 4">
+        </div>
+      </div>
+      <div class="carousel-buttons">
+        <button onclick="scrollCarousel('carousel-certificados', -1)">⬅</button>
+        <button onclick="scrollCarousel('carousel-certificados', 1)">➡</button>
+      </div>
     </div>
 
-    <div class="section-box">
-      <h2>🎯 Objetivos</h2>
-      <p>Me aprofundar dentro do espectro da tecnologia, sendo capaz de contribuir com meus amigos, empresas futuras e claro, na Ciência.</p>
-    </div>
-
-    <div class="section-box experience">
-      <h2>💼 Experiências</h2>
-      <p><i class="fas fa-database"></i> Conhecimento básico sobre modelagem e construção de um Banco de Dados.</p>
-      <p><i class="fas fa-code"></i> Conhecimento em progresso sobre as múltiplas linguagens, principalmente C++ e Python.</p>
-      <p><i class="fas fa-paint-brush"></i> Artista desde criança, desenhar se tornou meu passatempo favorito.</p>
-      <p><i class="fas fa-theater-masks"></i> Teatro e atuação entram nesse conjunto artístico e criativo.</p>
-    </div>
-
-     
-      <h2>🖼 Minhas Imagens de Trabalho</h2>
-
-     
-        <img class="image-item active" src="images/arte1.png" alt="Arte 1">
-        <img class="image-item" src="images/arte2.png" alt="Arte 2">
-        <img class="image-item" src="images/arte3.png" alt="Arte 3">
-      
-
-      <h3>📊 Sinusi</h3>
-      
-        <img class="image-item active" src="images/sinusi1.png" alt="Sinusi 1">
-        <img class="image-item" src="images/sinusi2.png" alt="Sinusi 2">
-        <img class="image-item" src="images/sinusi3.png" alt="Sinusi 3">
-      
-
-      <h3>📜 Certificados / Acadêmico</h3>
-      
-        <img class="image-item active" src="images/certificado1.png" alt="Certificado 1">
-        <img class="image-item" src="images/certificado2.png" alt="Certificado 2">
-        <img class="image-item" src="images/certificado3.png" alt="Certificado 3">
-        <img class="image-item" src="images/certificado4.png" alt="Certificado 4">
-      
-    
-
-    <div class="section-box">
-      <h2>📂 Download</h2>
-      <p>Baixe meu portfólio completo em formato .doc:</p>
-      <a class="download-btn" href="portfolio.docx" download>Download Portfólio</a>
-    </div>
-
-    <div class="review">
+    <div class="review-section">
       <h2>Review</h2>
-      <p><strong>Sarah Lackman:</strong> Tive o privilégio de aprender muito com ela, dentro e fora da nossa sala. Emanuelle não foi somente uma colega de turma inteligente, ela foi uma amiga, uma pessoa admirável. Sei que o futuro reserva grandes conquistas para ela, porque onde ela estiver vai fazer diferença. <br><br> Com carinho, Sarah Lackman.</p>
-    </div>
-
-    <div class="thank-you">
-      <p>Obrigado por visitar meu site!</p>
-      <p>Fico à disposição para mais informações e colaboração!</p>
+      <p><em>Testemunho de colega de sala</em></p>
+      <p><strong>Sarah Lackman:</strong> Tive o privilégio de aprender muito com ela, dentro e fora da nossa sala. Emanuelle não foi somente uma colega de turma inteligente, ela foi uma amiga, uma pessoa admirável. Sei que o futuro reserva grandes conquistas para ela, porque onde ela estiver vai fazer diferença.<br><br>Com carinho,<br>Sarah Lackman.</p>
     </div>
   </section>
 
   <footer>
-    <p>Contato: emanuellechristinie8@email.com | LinkedIn | Instagram</p>
+    <p>Obrigada - espero que tenham gostado do meu site 💫</p>
   </footer>
 
   <script>
-    // Image appearance with smooth transitions
-    let currentImageIndex = 0;
-    const imageItems = document.querySelectorAll('.image-item');
-    
-    function showNextImage() {
-      imageItems.forEach((item, index) => {
-        item.classList.remove('active');
-        if (index === currentImageIndex) {
-          item.classList.add('active');
-        }
-      });
-      currentImageIndex = (currentImageIndex + 1) % imageItems.length;
+    function scrollCarousel(id, direction) {
+      const el = document.getElementById(id);
+      const scrollAmount = 420;
+      el.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
     }
-
-    setInterval(showNextImage, 3000); // Change image every 3 seconds
   </script>
-
 </body>
 </html>
+
