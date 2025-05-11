@@ -28,21 +28,24 @@
       text-align: center;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 10px;
+      margin-bottom: 40px;
     }
 
     h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
+      font-size: 3em;
+      margin-bottom: 20px;
       text-transform: uppercase;
+      animation: fadeIn 1s ease-in-out;
     }
 
     p {
-      font-size: 1.2em;
+      font-size: 1.5em;
       font-style: italic;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
     .social-links a {
-      margin: 0 10px;
+      margin: 0 15px;
       font-size: 22px;
       color: white;
       transition: color 0.3s;
@@ -133,6 +136,7 @@
       border-radius: 8px;
       width: 100%;
       position: relative;
+      margin-bottom: 30px;
     }
 
     .carousel img {
@@ -147,7 +151,7 @@
     }
 
     .review h2 {
-      font-size: 2.5em;
+      font-size: 3em;
       text-align: center;
       margin-bottom: 20px;
     }
@@ -156,6 +160,27 @@
       font-size: 1.2em;
       line-height: 1.6;
       text-align: center;
+    }
+
+    .section-box h2 {
+      font-size: 2em;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .review h2 {
+      font-size: 3.2em;
+    }
+
+    /* Scroll smooth effect */
+    html {
+      scroll-behavior: smooth;
     }
 
   </style>
@@ -199,6 +224,71 @@
       <p><i class="fas fa-database"></i> Conhecimento básico sobre modelagem e construção de um Banco de Dados.</p>
       <p><i class="fas fa-code"></i> Conhecimento em progresso sobre as múltiplas linguagens, principalmente C++ e Python.</p>
       <p><i class="fas fa-paint-brush"></i> Artista desde criança, desenhar se tornou meu passatempo favorito.</p>
-      <p><i class="fas fa
+      <p><i class="fas fa-theater-masks"></i> Teatro e atuação entram nesse conjunto artístico e criativo.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🖼 Imagens de Trabalho</h2>
+
+      <div class="carousel">
+        <img src="images/arte1.png" alt="Arte 1">
+        <img src="images/arte2.png" alt="Arte 2">
+        <img src="images/arte3.png" alt="Arte 3">
+      </div>
+
+      <h3>📊 Sinusi</h3>
+      <div class="carousel">
+        <img src="images/sinusi1.png" alt="Sinusi 1">
+        <img src="images/sinusi2.png" alt="Sinusi 2">
+        <img src="images/sinusi3.png" alt="Sinusi 3">
+      </div>
+
+      <h3>📜 Certificados / Acadêmico</h3>
+      <div class="carousel">
+        <img src="images/certificado1.png" alt="Certificado 1">
+        <img src="images/certificado2.png" alt="Certificado 2">
+        <img src="images/certificado3.png" alt="Certificado 3">
+        <img src="images/certificado4.png" alt="Certificado 4">
+      </div>
+    </div>
+
+    <div class="section-box">
+      <h2>📂 Download</h2>
+      <p>Baixe meu portfólio completo em formato .doc:</p>
+      <a class="download-btn" href="portfolio.docx" download>Download Portfólio</a>
+    </div>
+
+    <div class="review">
+      <h2>Review - Testemunho de Colega de Sala</h2>
+      <p><strong>Sarah Lackman:</strong> Tive o privilégio de aprender muito com ela, dentro e fora da nossa sala. Emanuelle não foi somente uma colega de turma inteligente, ela foi uma amiga, uma pessoa admirável. Sei que o futuro reserva grandes conquistas para ela, porque onde ela estiver vai fazer diferença. <br><br> Com carinho, Sarah Lackman.</p>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>Obrigado por visitar meu site! Espero que tenha gostado 💫</p>
+  </footer>
+
+  <script>
+    window.onload = () => {
+      // reveal animation
+      const sections = document.querySelectorAll('.section-box');
+      window.addEventListener('scroll', () => {
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            section.classList.add('visible');
+          }
+        });
+      });
+    };
+  </script>
+
+  <!-- Circles and Squares Animation -->
+  <div class="circle"></div>
+  <div class="square"></div>
+</body>
+</html>
+
 
 
