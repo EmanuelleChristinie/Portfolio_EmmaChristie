@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emanuelle | Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -13,7 +13,7 @@
       color: #fff;
       background: linear-gradient(-45deg, #e66465, #9198e5, #f6d365, #c471ed);
       background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
+      animation: gradient 10s ease infinite;
       overflow-x: hidden;
     }
 
@@ -33,17 +33,26 @@
 
     h1 {
       font-size: 3em;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       text-transform: uppercase;
+      animation: fadeIn 1s ease-in-out;
     }
 
     p {
-      font-size: 1.4em;
+      font-size: 1.5em;
       font-style: italic;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
     .social-links {
-      margin-top: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links::before {
+      content: "Minhas formas de contato: ";
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.2em;
     }
 
     .social-links a {
@@ -67,87 +76,100 @@
       background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       padding: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      transition: transform 0.5s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
     }
 
-    .section-box:hover {
-      transform: scale(1.02);
+    .section-box.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
+    .section-box h2 {
+      font-size: 2em;
+      text-align: center;
+      padding-bottom: 10px;
     }
 
-    .carousel {
+    .experience i {
+      margin-right: 10px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #fff;
+      color: #333;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .download-btn:hover {
+      background-color: #ffd700;
+      color: #000;
+    }
+
+    .gallery {
       display: flex;
-      transition: transform 0.5s ease-in-out;
-      scroll-behavior: smooth;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
 
-    .carousel img {
+    .gallery img {
       width: 100%;
       max-width: 400px;
-      margin-right: 20px;
-      border-radius: 10px;
-      flex-shrink: 0;
+      margin: 10px;
+      border-radius: 15px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
     }
 
-    .carousel-buttons {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
+    .gallery img.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .carousel-buttons button {
-      background: rgba(255, 255, 255, 0.3);
-      border: none;
-      padding: 10px;
-      margin: 0 5px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .carousel-buttons button:hover {
-      background: #ffd700;
-    }
-
-    .review-section {
+    .review h2 {
+      font-size: 3em;
       text-align: center;
-      margin-top: 60px;
+      margin-bottom: 20px;
     }
 
-    .review-section h2 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .review-section p {
+    .review p {
       font-size: 1.2em;
-      max-width: 700px;
-      margin: auto;
+      line-height: 1.6;
+      text-align: center;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
-      font-size: 16px;
-      background: rgba(0, 0, 0, 0.3);
-      margin-top: 40px;
+      padding: 30px;
+      background-color: rgba(0, 0, 0, 0.3);
+      font-size: 1em;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>WELCOME TO MY SITE</h1>
+    <h1>WELCOME TO MY WEBSITE</h1>
     <p>Um pouco sobre mim de um novo jeito</p>
     <div class="social-links">
-      <span>Minhas formas de contato:</span><br>
       <a href="https://www.instagram.com/manu_christinie/" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.linkedin.com/in/emanuelle-christinie-202900226/" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://discord.com/users/720340595259998260" target="_blank"><i class="fab fa-discord"></i></a>
@@ -157,68 +179,91 @@
 
   <section>
     <div class="section-box">
-      <h2>🎨 Arte</h2>
-      <div class="carousel-container">
-        <div class="carousel" id="carousel-arte">
-          <img src="images/arte1.png" alt="Arte 1">
-          <img src="images/arte2.png" alt="Arte 2">
-          <img src="images/arte3.png" alt="Arte 3">
-        </div>
+      <h2>✨ Quem Sou Eu</h2>
+      <p>Prazer, me chamo Emanuelle Christinie, mas também posso atender por Emma. Tenho 18 anos e atualmente sou estudante de Ciências da Computação pela CEUB.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🌍 Idiomas</h2>
+      <p>Inglês avançado, Espanhol intermediário, iniciante em francês.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🛠 Habilidades</h2>
+      <p>Criatividade, liderança, organização e raciocínio lógico.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🎯 Objetivos</h2>
+      <p>Me aprofundar dentro do espectro da tecnologia, sendo capaz de contribuir com meus amigos, empresas futuras e claro, na Ciência.</p>
+    </div>
+
+    <div class="section-box experience">
+      <h2>💼 Experiências</h2>
+      <p><i class="fas fa-database"></i> Conhecimento básico sobre modelagem e construção de um Banco de Dados.</p>
+      <p><i class="fas fa-code"></i> Conhecimento em progresso sobre as múltiplas linguagens, principalmente C++ e Python.</p>
+      <p><i class="fas fa-paint-brush"></i> Artista desde criança, desenhar se tornou meu passatempo favorito.</p>
+      <p><i class="fas fa-theater-masks"></i> Teatro e atuação entram nesse conjunto artístico e criativo.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🖼 Imagens de Trabalho</h2>
+
+      <div class="gallery">
+        <img src="images/arte1.png" alt="Arte 1">
+        <img src="images/arte2.png" alt="Arte 2">
+        <img src="images/arte3.png" alt="Arte 3">
       </div>
-      <div class="carousel-buttons">
-        <button onclick="scrollCarousel('carousel-arte', -1)">⬅</button>
-        <button onclick="scrollCarousel('carousel-arte', 1)">➡</button>
+
+      <h3>📊 Sinusi</h3>
+      <div class="gallery">
+        <img src="images/sinusi1.png" alt="Sinusi 1">
+        <img src="images/sinusi2.png" alt="Sinusi 2">
+        <img src="images/sinusi3.png" alt="Sinusi 3">
+      </div>
+
+      <h3>📜 Certificados / Acadêmico</h3>
+      <div class="gallery">
+        <img src="images/certificado1.png" alt="Certificado 1">
+        <img src="images/certificado2.png" alt="Certificado 2">
+        <img src="images/certificado3.png" alt="Certificado 3">
+        <img src="images/certificado4.png" alt="Certificado 4">
       </div>
     </div>
 
     <div class="section-box">
-      <h2>📊 Sinusi</h2>
-      <div class="carousel-container">
-        <div class="carousel" id="carousel-sinusi">
-          <img src="images/sinusi1.png" alt="Sinusi 1">
-          <img src="images/sinusi2.png" alt="Sinusi 2">
-          <img src="images/sinusi3.png" alt="Sinusi 3">
-        </div>
-      </div>
-      <div class="carousel-buttons">
-        <button onclick="scrollCarousel('carousel-sinusi', -1)">⬅</button>
-        <button onclick="scrollCarousel('carousel-sinusi', 1)">➡</button>
-      </div>
+      <h2>📂 Download</h2>
+      <p>Baixe meu portfólio completo em formato .doc:</p>
+      <a class="download-btn" href="portfolio.docx" download>Download Portfólio</a>
     </div>
 
-    <div class="section-box">
-      <h2>📜 Certificados / Acadêmico</h2>
-      <div class="carousel-container">
-        <div class="carousel" id="carousel-certificados">
-          <img src="images/certificado1.png" alt="Certificado 1">
-          <img src="images/certificado2.png" alt="Certificado 2">
-          <img src="images/certificado3.png" alt="Certificado 3">
-          <img src="images/certificado4.png" alt="Certificado 4">
-        </div>
-      </div>
-      <div class="carousel-buttons">
-        <button onclick="scrollCarousel('carousel-certificados', -1)">⬅</button>
-        <button onclick="scrollCarousel('carousel-certificados', 1)">➡</button>
-      </div>
-    </div>
-
-    <div class="review-section">
+    <div class="section-box review">
       <h2>Review</h2>
-      <p><em>Testemunho de colega de sala</em></p>
-      <p><strong>Sarah Lackman:</strong> Tive o privilégio de aprender muito com ela, dentro e fora da nossa sala. Emanuelle não foi somente uma colega de turma inteligente, ela foi uma amiga, uma pessoa admirável. Sei que o futuro reserva grandes conquistas para ela, porque onde ela estiver vai fazer diferença.<br><br>Com carinho,<br>Sarah Lackman.</p>
+      <p><strong>Sarah Lackman:</strong> Tive o privilégio de aprender muito com ela, dentro e fora da nossa sala. Emanuelle não foi somente uma colega de turma inteligente, ela foi uma amiga, uma pessoa admirável. Sei que o futuro reserva grandes conquistas para ela, porque onde ela estiver vai fazer diferença.</p>
     </div>
   </section>
 
   <footer>
-    <p>Obrigada - espero que tenham gostado do meu site 💫</p>
+    <p>Obrigado por visitar meu site! Espero que tenha gostado 💫</p>
   </footer>
 
   <script>
-    function scrollCarousel(id, direction) {
-      const el = document.getElementById(id);
-      const scrollAmount = 420;
-      el.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
-    }
+    // Animações de entrada para seções
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.section-box').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+
+      document.querySelectorAll('.gallery img').forEach(img => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          img.classList.add('visible');
+        }
+      });
+    });
   </script>
 </body>
 </html>
