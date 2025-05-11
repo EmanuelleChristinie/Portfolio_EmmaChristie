@@ -14,7 +14,7 @@
       background: linear-gradient(-45deg, #e66465, #9198e5, #f6d365, #c471ed);
       background-size: 400% 400%;
       animation: gradient 10s ease infinite;
-      scroll-behavior: smooth;
+      overflow-x: hidden; /* Remove horizontal scroll */
     }
 
     @keyframes gradient {
@@ -24,9 +24,10 @@
     }
 
     header {
-      padding: 80px 20px 40px;
+      padding: 120px 20px 40px;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
     }
 
     h1 {
@@ -35,49 +36,37 @@
       text-transform: uppercase;
     }
 
-    .subtitle {
-      font-size: 1.3em;
-      color: #ffe;
-      margin-top: 0;
+    p {
+      font-size: 1.2em;
       font-style: italic;
-    }
-
-    .social-links {
-      margin-top: 20px;
-    }
-
-    .social-links p {
-      font-size: 1em;
-      margin-bottom: 10px;
     }
 
     .social-links a {
       margin: 0 10px;
       font-size: 22px;
       color: white;
-      transition: transform 0.3s, color 0.3s;
+      transition: color 0.3s;
     }
 
     .social-links a:hover {
       color: #ffd700;
-      transform: scale(1.2);
     }
 
     section {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px 40px;
+      padding: 40px 20px;
     }
 
     .section-box {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       padding: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       opacity: 0;
       transform: translateY(30px);
-      transition: all 1s ease;
+      transition: all 0.8s ease;
     }
 
     .section-box.visible {
@@ -85,33 +74,12 @@
       transform: translateY(0);
     }
 
-    .section-box:hover {
-      transform: scale(1.02);
-      transition: transform 0.3s ease;
-    }
-
     .section-box h2 {
       margin-top: 0;
-      font-size: 1.8em;
     }
 
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 15px;
-      padding: 10px 0;
-    }
-
-    .carousel img {
-      scroll-snap-align: center;
-      max-height: 250px;
-      border-radius: 10px;
-      transition: transform 0.4s ease;
-    }
-
-    .carousel img:hover {
-      transform: scale(1.1);
+    .experience i {
+      margin-right: 10px;
     }
 
     .download-btn {
@@ -130,43 +98,74 @@
       color: #000;
     }
 
+    .circle, .square {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      animation: moveShape 8s linear infinite;
+    }
+
+    .square {
+      border-radius: 0;
+    }
+
+    @keyframes moveShape {
+      0% { top: 10%; left: 10%; }
+      25% { top: 50%; left: 25%; }
+      50% { top: 10%; left: 50%; }
+      75% { top: 70%; left: 75%; }
+      100% { top: 10%; left: 10%; }
+    }
+
     footer {
       text-align: center;
-      padding: 30px;
-      background-color: rgba(0,0,0,0.3);
-      font-size: 15px;
-    }
-
-    .testimonial {
-      background-color: rgba(255, 255, 255, 0.15);
       padding: 20px;
-      border-radius: 10px;
+      background-color: rgba(0,0,0,0.3);
+      font-size: 14px;
+    }
+
+    /* Carousel for images */
+    .carousel {
+      display: flex;
+      overflow: hidden;
+      border-radius: 8px;
+      width: 100%;
+      position: relative;
+    }
+
+    .carousel img {
+      width: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    /* Hover effects */
+    .section-box:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .review h2 {
+      font-size: 2.5em;
       text-align: center;
-      margin-top: 40px;
+      margin-bottom: 20px;
     }
 
-    .testimonial h2 {
-      font-size: 1.6em;
-      margin-bottom: 10px;
+    .review p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      text-align: center;
     }
 
-    .testimonial p {
-      font-style: italic;
-    }
-
-    .testimonial .author {
-      margin-top: 10px;
-      font-weight: bold;
-      font-family: 'Georgia', serif;
-    }
   </style>
 </head>
 <body>
+
   <header>
     <h1>WELCOME TO MY SITE</h1>
-    <p class="subtitle">Um pouco sobre mim de um novo jeito</p>
+    <p>Um pouco sobre mim de um novo jeito</p>
     <div class="social-links">
-      <p>Minhas formas de contato:</p>
       <a href="https://www.instagram.com/manu_christinie/" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.linkedin.com/in/emanuelle-christinie-202900226/" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://discord.com/users/720340595259998260" target="_blank"><i class="fab fa-discord"></i></a>   
@@ -175,92 +174,31 @@
   </header>
 
   <section>
-    <div class="section-box visible">
+    <div class="section-box">
       <h2>✨ Quem Sou Eu</h2>
       <p>Prazer, me chamo Emanuelle Christinie, mas também posso atender por Emma. Tenho 18 anos e atualmente sou estudante de Ciências da Computação pela CEUB.</p>
     </div>
 
-    <div class="section-box visible">
+    <div class="section-box">
       <h2>🌍 Idiomas</h2>
-      <p>Inglês avançado</p>
-      <p>Espanhol intermediário</p>
-      <p>Iniciante em francês</p>
+      <p>Inglês avançado, Espanhol intermediário, iniciante em francês.</p>
     </div>
 
-    <div class="section-box visible">
+    <div class="section-box">
       <h2>🛠 Habilidades</h2>
       <p>Criatividade, liderança, organização e raciocínio lógico.</p>
     </div>
 
-    <div class="section-box visible">
+    <div class="section-box">
       <h2>🎯 Objetivos</h2>
       <p>Me aprofundar dentro do espectro da tecnologia, sendo capaz de contribuir com meus amigos, empresas futuras e claro, na Ciência.</p>
     </div>
 
-    <div class="section-box visible">
+    <div class="section-box experience">
       <h2>💼 Experiências</h2>
       <p><i class="fas fa-database"></i> Conhecimento básico sobre modelagem e construção de um Banco de Dados.</p>
       <p><i class="fas fa-code"></i> Conhecimento em progresso sobre as múltiplas linguagens, principalmente C++ e Python.</p>
       <p><i class="fas fa-paint-brush"></i> Artista desde criança, desenhar se tornou meu passatempo favorito.</p>
-      <p><i class="fas fa-theater-masks"></i> Teatro e atuação entram nesse conjunto artístico e criativo.</p>
-    </div>
-
-    <div class="section-box visible">
-      <h2>🖼 Artes</h2>
-      <div class="carousel">
-        <img src="images/arte1.png.jpg" alt="Arte 1">
-        <img src="images/arte2.png.jpg" alt="Arte 2">
-        <img src="images/arte3.png.jpg" alt="Arte 3">
-      </div>
-    </div>
-
-    <div class="section-box visible">
-      <h2>📊 Sinusi</h2>
-      <div class="carousel">
-        <img src="images/sinusi1.png.jpg" alt="Sinusi 1">
-        <img src="images/sinusi2.png.jpg" alt="Sinusi 2">
-        <img src="images/sinusi3.png.jpg" alt="Sinusi 3">
-      </div>
-    </div>
-
-    <div class="section-box visible">
-      <h2>📜 Certificados / Acadêmico</h2>
-      <div class="carousel">
-        <img src="images/certificados1.png.jpg" alt="Certificado 1">
-        <img src="images/certificados2.png.jpg" alt="Certificado 2">
-        <img src="images/certificados3.png.jpg" alt="Certificado 3">
-        <img src="images/certificados4png.jpg" alt="Certificado 4">
-      </div>
-    </div>
-
-    <div class="section-box visible">
-      <h2>📂 Download</h2>
-      <p>Baixe meu portfólio completo em formato .doc:</p>
-      <a class="download-btn" href="portfolio.docx" download>Download Portfólio</a>
-    </div>
-
-    <div class="testimonial">
-      <h2>Review<br><span style="font-size: 1.2em;">Testemunho de colegas de sala</span></h2>
-      <p>"Tive o privilégio de aprender muito com ela, dentro e fora da nossa sala. Emanuelle não foi somente uma colega de turma inteligente, ela foi uma amiga, uma pessoa admirável. Sei que o futuro reserva grandes conquistas pra ela, porque onde ela estiver vai fazer diferença."</p>
-      <div class="author">Com carinho,<br>Sarah Lackman.</div>
-    </div>
-  </section>
-
-  <footer>
-    Obrigada - espero que tenham gostado do meu site 💖
-  </footer>
-
-  <script>
-    window.onload = () => {
-      const sections = document.querySelectorAll('.section-box');
-      sections.forEach((section, index) => {
-        setTimeout(() => {
-          section.classList.add('visible');
-        }, index * 200);
-      });
-    };
-  </script>
-</body>
-</html>
+      <p><i class="fas fa
 
 
