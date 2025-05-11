@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Emanuelle | Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
       background: linear-gradient(-45deg, #e66465, #9198e5, #f6d365, #c471ed);
       background-size: 400% 400%;
       animation: gradient 10s ease infinite;
-      color: #fff;
-      overflow-x: hidden;
+      overflow-x: hidden; /* Remove horizontal scroll */
     }
 
     @keyframes gradient {
@@ -28,51 +24,48 @@
     }
 
     header {
+      padding: 120px 20px 40px;
       text-align: center;
-      padding: 100px 20px 60px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      margin-bottom: 40px;
     }
 
-    header h1 {
+    h1 {
       font-size: 3em;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    header p {
-      font-size: 1.3em;
-      opacity: 0.9;
-    }
-
-    .social-links {
-      margin-top: 20px;
-    }
-
-    .social-links p {
-      margin-bottom: 10px;
+    p {
+      font-size: 1.5em;
+      font-style: italic;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
     .social-links a {
-      margin: 0 10px;
+      margin: 0 15px;
       font-size: 22px;
       color: white;
-      transition: transform 0.3s ease, color 0.3s;
+      transition: color 0.3s;
     }
 
     .social-links a:hover {
-      transform: scale(1.2);
       color: #ffd700;
     }
 
     section {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 40px 20px;
     }
 
     .section-box {
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
+      border-radius: 10px;
       padding: 20px;
-      margin: 20px 0;
+      margin-bottom: 20px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       opacity: 0;
       transform: translateY(30px);
@@ -84,58 +77,12 @@
       transform: translateY(0);
     }
 
-    .section-box:hover {
-      transform: scale(1.02);
-      transition: all 0.4s ease;
+    .section-box h2 {
+      margin-top: 0;
     }
 
-    .carousel {
-      position: relative;
-      overflow: hidden;
-      margin: 20px 0;
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .carousel img {
-      flex: 0 0 auto;
-      width: 300px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin: 0 10px;
-    }
-
-    .carousel-buttons {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 10px;
-    }
-
-    .carousel-button {
-      background-color: rgba(0, 0, 0, 0.3);
-      color: white;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      padding: 5px 10px;
-      border-radius: 50%;
-      transition: background 0.3s;
-    }
-
-    .carousel-button:hover {
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    h2, h3 {
-      margin-bottom: 10px;
+    .experience i {
+      margin-right: 10px;
     }
 
     .download-btn {
@@ -154,24 +101,88 @@
       color: #000;
     }
 
-    .review-title {
-      font-size: 28px;
-      margin-bottom: 5px;
-      font-weight: bold;
+    .circle, .square {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      animation: moveShape 8s linear infinite;
     }
 
-    .review-sub {
-      font-size: 18px;
-      opacity: 0.8;
-      margin-bottom: 20px;
+    .square {
+      border-radius: 0;
+    }
+
+    @keyframes moveShape {
+      0% { top: 10%; left: 10%; }
+      25% { top: 50%; left: 25%; }
+      50% { top: 10%; left: 50%; }
+      75% { top: 70%; left: 75%; }
+      100% { top: 10%; left: 10%; }
     }
 
     footer {
       text-align: center;
-      padding: 30px 10px;
-      background-color: rgba(0,0,0,0.2);
+      padding: 20px;
+      background-color: rgba(0,0,0,0.3);
       font-size: 14px;
     }
+
+    /* Carousel for images */
+    .carousel {
+      display: flex;
+      overflow: hidden;
+      border-radius: 8px;
+      width: 100%;
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .carousel img {
+      width: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    /* Hover effects */
+    .section-box:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .review h2 {
+      font-size: 3em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .review p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .section-box h2 {
+      font-size: 2em;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .review h2 {
+      font-size: 3.2em;
+    }
+
+    /* Scroll smooth effect */
+    html {
+      scroll-behavior: smooth;
+    }
+
   </style>
 </head>
 <body>
@@ -180,10 +191,9 @@
     <h1>WELCOME TO MY SITE</h1>
     <p>Um pouco sobre mim de um novo jeito</p>
     <div class="social-links">
-      <p>Minhas formas de contato:</p>
       <a href="https://www.instagram.com/manu_christinie/" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.linkedin.com/in/emanuelle-christinie-202900226/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://discord.com/users/720340595259998260" target="_blank"><i class="fab fa-discord"></i></a>
+      <a href="https://discord.com/users/720340595259998260" target="_blank"><i class="fab fa-discord"></i></a>   
       <a href="mailto:emanuellechristinie8@email.com"><i class="fas fa-envelope"></i></a>
     </div>
   </header>
@@ -196,7 +206,7 @@
 
     <div class="section-box">
       <h2>🌍 Idiomas</h2>
-      <p>Inglês avançado, Espanhol intermediário, Iniciante em Francês.</p>
+      <p>Inglês avançado, Espanhol intermediário, iniciante em francês.</p>
     </div>
 
     <div class="section-box">
@@ -209,57 +219,36 @@
       <p>Me aprofundar dentro do espectro da tecnologia, sendo capaz de contribuir com meus amigos, empresas futuras e claro, na Ciência.</p>
     </div>
 
-    <div class="section-box">
+    <div class="section-box experience">
       <h2>💼 Experiências</h2>
       <p><i class="fas fa-database"></i> Conhecimento básico sobre modelagem e construção de um Banco de Dados.</p>
-      <p><i class="fas fa-code"></i> Conhecimento em progresso sobre múltiplas linguagens, principalmente C++ e Python.</p>
+      <p><i class="fas fa-code"></i> Conhecimento em progresso sobre as múltiplas linguagens, principalmente C++ e Python.</p>
       <p><i class="fas fa-paint-brush"></i> Artista desde criança, desenhar se tornou meu passatempo favorito.</p>
       <p><i class="fas fa-theater-masks"></i> Teatro e atuação entram nesse conjunto artístico e criativo.</p>
     </div>
 
     <div class="section-box">
-      <h2>🎨 Arte</h2>
-      <div class="carousel" id="carousel-arte">
-        <div class="carousel-track">
-          <img src="images/arte1.png.jpg" alt="Arte 1">
-          <img src="images/arte2.png.jpg" alt="Arte 2">
-          <img src="images/arte3.png.jpg" alt="Arte 3">
-        </div>
-        <div class="carousel-buttons">
-          <button class="carousel-button prev">&#10094;</button>
-          <button class="carousel-button next">&#10095;</button>
-        </div>
-      </div>
-    </div>
+      <h2>🖼 Imagens de Trabalho</h2>
 
-    <div class="section-box">
-      <h2>📊 Sinusi</h2>
-      <div class="carousel" id="carousel-sinusi">
-        <div class="carousel-track">
-          <img src="images/sinusi1.png.jpg" alt="Sinusi 1">
-          <img src="images/sinusi2.png.jpg" alt="Sinusi 2">
-          <img src="images/sinusi3.png.jpg" alt="Sinusi 3">
-        </div>
-        <div class="carousel-buttons">
-          <button class="carousel-button prev">&#10094;</button>
-          <button class="carousel-button next">&#10095;</button>
-        </div>
+      <div class="carousel">
+        <img src="images/arte1.png" alt="Arte 1">
+        <img src="images/arte2.png" alt="Arte 2">
+        <img src="images/arte3.png" alt="Arte 3">
       </div>
-    </div>
 
-    <div class="section-box">
-      <h2>📜 Certificados / Acadêmico</h2>
-      <div class="carousel" id="carousel-certificados">
-        <div class="carousel-track">
-          <img src="images/certificados1.png.jpg" alt="Certificado 1">
-          <img src="images/certificados2.png.jpg" alt="Certificado 2">
-          <img src="images/certificados3.png.jpg" alt="Certificado 3">
-          <img src="images/certificados4png.jpg" alt="Certificado 4">
-        </div>
-        <div class="carousel-buttons">
-          <button class="carousel-button prev">&#10094;</button>
-          <button class="carousel-button next">&#10095;</button>
-        </div>
+      <h3>📊 Sinusi</h3>
+      <div class="carousel">
+        <img src="images/sinusi1.png" alt="Sinusi 1">
+        <img src="images/sinusi2.png" alt="Sinusi 2">
+        <img src="images/sinusi3.png" alt="Sinusi 3">
+      </div>
+
+      <h3>📜 Certificados / Acadêmico</h3>
+      <div class="carousel">
+        <img src="images/certificado1.png" alt="Certificado 1">
+        <img src="images/certificado2.png" alt="Certificado 2">
+        <img src="images/certificado3.png" alt="Certificado 3">
+        <img src="images/certificado4.png" alt="Certificado 4">
       </div>
     </div>
 
@@ -269,20 +258,20 @@
       <a class="download-btn" href="portfolio.docx" download>Download Portfólio</a>
     </div>
 
-    <div class="section-box">
-      <div class="review-title">Review</div>
-      <div class="review-sub">Testemunho de uma colega de sala</div>
-      <p><strong>Sarah Lackman</strong> – Tive o privilégio de aprender muito com ela, dentro e fora da nossa sala. Emanuelle não foi somente uma colega de turma inteligente, ela foi uma amiga, uma pessoa admirável. Sei que o futuro reserva grandes conquistas pra ela, porque onde ela estiver vai fazer diferença.</p>
-      <p style="margin-top: 15px; font-style: italic;">Obrigada – espero que tenham gostado do meu site<br>Com carinho,<br>Sarah Lackman.</p>
+    <div class="review">
+      <h2>Review - Testemunho de Colega de Sala</h2>
+      <p><strong>Sarah Lackman:</strong> Tive o privilégio de aprender muito com ela, dentro e fora da nossa sala. Emanuelle não foi somente uma colega de turma inteligente, ela foi uma amiga, uma pessoa admirável. Sei que o futuro reserva grandes conquistas para ela, porque onde ela estiver vai fazer diferença. <br><br> Com carinho, Sarah Lackman.</p>
     </div>
+
   </section>
 
   <footer>
-    © 2025 Emanuelle Christinie | Todos os direitos reservados.
+    <p>Obrigado por visitar meu site! Espero que tenha gostado 💫</p>
   </footer>
 
   <script>
     window.onload = () => {
+      // reveal animation
       const sections = document.querySelectorAll('.section-box');
       window.addEventListener('scroll', () => {
         sections.forEach(section => {
@@ -292,31 +281,15 @@
           }
         });
       });
-
-      document.querySelectorAll('.carousel').forEach(carousel => {
-        const track = carousel.querySelector('.carousel-track');
-        const prev = carousel.querySelector('.prev');
-        const next = carousel.querySelector('.next');
-        let index = 0;
-        const images = track.children.length;
-        const move = () => {
-          track.style.transform = `translateX(-${index * 320}px)`;
-        };
-
-        prev.onclick = () => {
-          index = (index - 1 + images) % images;
-          move();
-        };
-
-        next.onclick = () => {
-          index = (index + 1) % images;
-          move();
-        };
-      });
     };
   </script>
+
+  <!-- Circles and Squares Animation -->
+  <div class="circle"></div>
+  <div class="square"></div>
 </body>
 </html>
+
 
 
 
